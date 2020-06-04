@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Nixie+One');
+
+html,body{
+  margin:0px;
+  height: 100%;
+	width: 100%;
+  display: table;
+  background: #222222;
+  background-repeat: repeat;
+	background-position: center center;
+}
+div{
+  /*font-family: 'Monoton', cursive;*/
+  font-family:'Nixie One', Helvetica, Arial;
+  font-size:6em;
+  text-align:center;
+  color:#19B5FE;
+  display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+  text-shadow:
+   0px 0px 5px #fff,
+   0px 0px 10px #19B5FE,
+   0px 0px  20px #19B5FE,
+   0px 0px 30px #19B5FE;
+  -webkit-animation:mymove 5s infinite;
+  
+}
+@-webkit-keyframes mymove{
+  from  {  
+text-shadow:
+0px 0px 0px #19B5FE,
+0px 0px 0px #19B5FE,
+0px 0px 30px #19B5FE,
+0px 0px 50px #19B5FE,
+0px 0px 80px #19B5FE,
+0px 0px 100px #19B5FE,
+0px 0px 150px #19B5FE;}
+  to {  text-shadow:
+0px 0px 10px  #19B5FE,
+0px 0px 20px #19B5FE,
+0px 0px 30px #19B5FE,
+0px 0px 50px #19B5FE,
+0px 0px 80px #19B5FE,
+0px 0px 100px #19B5FE;
+color:#fff;
+   }
+}
