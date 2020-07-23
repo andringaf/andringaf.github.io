@@ -58,8 +58,8 @@
 			<div class="container-fluid text-center">
 				<img class="foto">
 				<div class="hero-text">
-					<h2>Febriana Andringa</h2>
-					<p>I’m a web developer working with passion.</p>
+					<h2 id="bio-name"></h2>
+					<p id="bio-desc"></p>
 				</div>
 				<div class="social-links">
 					<!-- <a href=""><i class="fa fa-pinterest"></i></a> -->
@@ -81,16 +81,16 @@
 							<div class="col-md-6">
 								<div class="hero-info mb-4 mb-md-0">
 									<ul>
-										<li><span>Ages</span>24 YO</li>
-										<li><span>Address</span>Cikutra, Bandung</li>
+										<li>Ages: <span id="bio-age">Ages</span></li>
+										<li>Address: <span id="bio-address"></span></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="hero-info">
 									<ul>
-										<li><span>E-mail</span>febriana.andringa@gmail.com</li>
-										<li><span>Phone </span>+62 838-9885-7462</li>
+										<li>E-mail: <span id="bio-email"></span></li>
+										<li>Phone: <span id="bio-phone"></span></li>
 									</ul>
 								</div>
 							</div>
@@ -310,7 +310,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/magnific-popup.min.js"></script>
-	<script src="js/circle-progress.min.js"></script>
+	<!-- <script src="js/circle-progress.min.js"></script> -->
 	<script src="js/main.js"></script>
+	<script src="upup.min.js"></script>
+	<script src="upup.sw.min.js"></script>
+
+	<script>
+		$.ajax({
+		  url: "https://my-json-server.typicode.com/andringaf/dbapi/bio",
+		  cache: false,
+		  success: function(html){
+		  	$('#bio-name').text(html.name);
+		  	$('#bio-desc').text(html.desc);
+		  	$('#bio-age').text(html.age);
+		  	$('#bio-address').text(html.address);
+		  	$('#bio-email').text(html.email);
+		  	$('#bio-phone').text(html.phone);
+		  }
+		});
+
+	    UpUp.debug();
+
+		UpUp.start({
+          'cache-version': 'v2',
+		  'content-url': 'index.html',
+		  'assets': ['css/bootstrap.min.css','css/font-awesome.min.css','css/flaticon.css','css/magnific-popup.css','css/owl.carousel.css','css/style.css','js/jquery-2.1.4.min.js', 'js/bootstrap.min.js', 'js/main.js', 'upup.min.js','js/owl.carousel.min.js','js/magnific-popup.min.js']
+		});
+	</script>
 </body>
 </html>
