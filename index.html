@@ -54,12 +54,60 @@
 		<!-- Header section end -->
 
 		<!-- Hero section start -->
-		<section class="hero-section">
+		<!-- <section class="hero-section">
 			<div class="container-fluid text-center">
 				<img class="foto">
 				<div class="hero-text">
 					<h2 id="bio-name"></h2>
 					<p id="bio-desc"></p>
+				</div>
+				<div class="social-links">
+					<a href=""><i class="fa fa-pinterest"></i></a>
+					<a href="https://www.linkedin.com/in/febriana-andringa-a61549159/"><i class="fa fa-linkedin"></i></a>
+					<a href="https://www.instagram.com/andringaf/"><i class="fa fa-instagram"></i></a>
+					<a href=""><i class="fa fa-facebook"></i></a>
+					<a href=""><i class="fa fa-twitter"></i></a>
+				</div>
+			</div>
+		</section> -->
+		<!-- Hero section end -->
+
+		<!-- Info section start -->
+		<!-- <div class="info-section">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xl-8 offset-xl-2 container-warp">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="hero-info mb-4 mb-md-0">
+									<ul>
+										<li>Ages: <span id="bio-age">Ages</span></li>
+										<li>Address: <span id="bio-address"></span></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="hero-info">
+									<ul>
+										<li>E-mail: <span id="bio-email"></span></li>
+										<li>Phone: <span id="bio-phone"></span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<!-- Info section end -->
+
+		<!-- Hero section start -->
+		<section class="hero-section">
+			<div class="container-fluid text-center">
+				<img class="foto">
+				<div class="hero-text">
+					<h2 id="bio-name">Febriana Andringa</h2>
+					<p id="bio-desc">I’m a web developer working with passion.</p>
 				</div>
 				<div class="social-links">
 					<!-- <a href=""><i class="fa fa-pinterest"></i></a> -->
@@ -81,16 +129,16 @@
 							<div class="col-md-6">
 								<div class="hero-info mb-4 mb-md-0">
 									<ul>
-										<li>Ages: <span id="bio-age">Ages</span></li>
-										<li>Address: <span id="bio-address"></span></li>
+										<li>Ages: <span id="bio-age">24  YO</span></li>
+										<li>Address: <span id="bio-address">Cikutra, Bandung</span></li>
 									</ul>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="hero-info">
 									<ul>
-										<li>E-mail: <span id="bio-email"></span></li>
-										<li>Phone: <span id="bio-phone"></span></li>
+										<li>E-mail: <span id="bio-email">febriana.andringa@gmail.com</span></li>
+										<li>Phone: <span id="bio-phone"></span>0838 9885 7463</li>
 									</ul>
 								</div>
 							</div>
@@ -316,18 +364,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="upup.sw.min.js"></script>
 
 	<script>
-		$.ajax({
-		  url: "https://my-json-server.typicode.com/andringaf/dbapi/bio",
-		  cache: false,
-		  success: function(html){
-		  	$('#bio-name').text(html.name);
-		  	$('#bio-desc').text(html.desc);
-		  	$('#bio-age').text(html.age);
-		  	$('#bio-address').text(html.address);
-		  	$('#bio-email').text(html.email);
-		  	$('#bio-phone').text(html.phone);
-		  }
-		});
+		// $.ajax({
+		//   url: "https://my-json-server.typicode.com/andringaf/dbapi/bio",
+		//   cache: false,
+		//   success: function(html){
+		//   	$('#bio-name').text(html.name);
+		//   	$('#bio-desc').text(html.desc);
+		//   	$('#bio-age').text(html.age);
+		//   	$('#bio-address').text(html.address);
+		//   	$('#bio-email').text(html.email);
+		//   	$('#bio-phone').text(html.phone);
+		//   }
+		// });
 
 	    UpUp.debug();
 
