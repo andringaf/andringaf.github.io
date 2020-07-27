@@ -54,7 +54,7 @@
 		<!-- Header section end -->
 
 		<!-- Hero section start -->
-		<!-- <section class="hero-section">
+		<section class="hero-section">
 			<div class="container-fluid text-center">
 				<img class="foto">
 				<div class="hero-text">
@@ -69,11 +69,11 @@
 					<a href=""><i class="fa fa-twitter"></i></a>
 				</div>
 			</div>
-		</section> -->
+		</section>
 		<!-- Hero section end -->
 
 		<!-- Info section start -->
-		<!-- <div class="info-section">
+		<div class="info-section">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-xl-8 offset-xl-2 container-warp">
@@ -98,11 +98,11 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 		<!-- Info section end -->
 
 		<!-- Hero section start -->
-		<section class="hero-section">
+		<!-- <section class="hero-section">
 			<div class="container-fluid text-center">
 				<img class="foto">
 				<div class="hero-text">
@@ -110,7 +110,6 @@
 					<p id="bio-desc">I’m a web developer working with passion.</p>
 				</div>
 				<div class="social-links">
-					<!-- <a href=""><i class="fa fa-pinterest"></i></a> -->
 					<a href="https://www.linkedin.com/in/febriana-andringa-a61549159/"><i class="fa fa-linkedin"></i></a>
 					<a href="https://www.instagram.com/andringaf/"><i class="fa fa-instagram"></i></a>
 					<a href=""><i class="fa fa-facebook"></i></a>
@@ -118,9 +117,7 @@
 				</div>
 			</div>
 		</section>
-		<!-- Hero section end -->
 
-		<!-- Info section start -->
 		<div class="info-section">
 			<div class="container-fluid">
 				<div class="row">
@@ -146,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- Info section end -->
 
 		<!-- Resume section start -->
@@ -360,29 +357,34 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/magnific-popup.min.js"></script>
 	<!-- <script src="js/circle-progress.min.js"></script> -->
 	<script src="js/main.js"></script>
-	<script src="upup.min.js"></script>
-	<script src="upup.sw.min.js"></script>
+	<script src="sw.js"></script>
 
 	<script>
-		// $.ajax({
-		//   url: "https://my-json-server.typicode.com/andringaf/dbapi/bio",
-		//   cache: false,
-		//   success: function(html){
-		//   	$('#bio-name').text(html.name);
-		//   	$('#bio-desc').text(html.desc);
-		//   	$('#bio-age').text(html.age);
-		//   	$('#bio-address').text(html.address);
-		//   	$('#bio-email').text(html.email);
-		//   	$('#bio-phone').text(html.phone);
-		//   }
-		// });
+		function renderBio(data){
+		  	$('#bio-name').text(data.name);
+		  	$('#bio-desc').text(data.desc);
+		  	$('#bio-age').text(data.age);
+		  	$('#bio-address').text(data.address);
+		  	$('#bio-email').text(data.email);
+		  	$('#bio-phone').text(data.phone);
+        }
 
-	    UpUp.debug();
 
-		UpUp.start({
-          'cache-version': 'v2',
-		  'content-url': 'index.html',
-		  'assets': ['css/bootstrap.min.css','css/font-awesome.min.css','css/flaticon.css','css/magnific-popup.css','css/owl.carousel.css','css/style.css','js/jquery-2.1.4.min.js', 'js/bootstrap.min.js', 'js/main.js', 'upup.min.js','js/owl.carousel.min.js','js/magnific-popup.min.js','upup.sw.min.js']
+		 if ('serviceWorker' in navigator) {
+		    console.log('Service Worker is supported');
+		    navigator.serviceWorker.register('sw.js').then(function(reg){
+		        console.log(':^)', reg.scope);
+		        // TODO
+		    }).catch(function(err) {
+		        console.log(':^(', err);
+		    });
+		}
+
+
+		fetch('https://my-json-server.typicode.com/andringaf/dbapi/bio')
+		.then(response => response.json())
+		.then(data => {
+			renderBio(data)
 		});
 	</script>
 </body>

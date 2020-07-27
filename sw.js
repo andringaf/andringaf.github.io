@@ -24,31 +24,29 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
     var request = event.request
     var url     = new URL(request.url)
-    if (url.origin === location.origin) {
       event.respondWith(
-          caches.match(request).then(function(response){
-            if (response) {
-              return response || fetch (request)
-            }
-          })
-      );
-    }else{
-      event.respondWith(
-        caches.open('cv-caches').then(function(cache){
-          return fetch(request).then(function(liveresponse){
-            caches.put(request, liveresponse.clone())
-            return liveresponse
-
-          }).catch(function(){
-            caches.match(request).then(function(response){
-              if (response) { return response }
-              return caches.match('/fallback.json')
-            })
-          })
+      caches.match(event.request)
+        .then(function(response) {
+          if (response) {
+            return response || fetch(response);     // if valid response is found in cache return it
+          } else {
+            return fetch(event.request)     //fetch from internet
+              .then(function(res) {
+                return caches.open(CACHE_NAME)
+                  .then(function(cache) {
+                    cache.put(event.request.url, res.clone());    //save the response for future
+                    return res;   // return the fetched data
+                  })
+              })
+              .catch(function(err) {       // fallback mechanism
+                return caches.open(CACHE_CONTAINING_ERROR_MESSAGES)
+                  .then(function(cache) {
+                    return cache.match('/offline.html');
+                  });
+              });
+          }
         })
-      )
-
-    }
+    );
 });
 
 self.addEventListener('activate', function(event) {
