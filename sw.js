@@ -7,7 +7,7 @@ var urlsToCache = ['css/bootstrap.min.css',
                     'css/style.css',
                     'js/jquery-2.1.4.min.js', 'js/bootstrap.min.js', 'js/main.js',
                     'js/owl.carousel.min.js',
-                    'fallback.json',
+                    'offline.html',
                     'js/magnific-popup.min.js'];
 
 self.addEventListener('install', function(event) {
